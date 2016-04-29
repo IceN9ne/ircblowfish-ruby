@@ -110,8 +110,12 @@ module IrcBlowfish
     # Decode the text to get the IV + ciphertext
     ciphertext = ::Base64.decode64 ciphertext
 
+    return msg if ciphertext.bytesize < 8
+
     iv = ciphertext[0,8]           # Extract the IV from the string
     ciphertext = ciphertext[8..-1] # Remove the IV from the string
+
+    return '' if ciphertext == ''
 
     # Create the Blowfish-CBC cipher
     cipher = OpenSSL::Cipher.new 'bf-cbc'
