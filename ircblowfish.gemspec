@@ -5,9 +5,9 @@ require 'ircblowfish/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "ircblowfish"
-  spec.version       = Ircblowfish::VERSION
-  spec.authors       = ["TODO: Write your name"]
-  spec.email         = ["TODO: Write your email address"]
+  spec.version       = IrcBlowfish::VERSION
+  spec.authors       = ["Jason Iverson"]
+  spec.email         = ["iverson.jason.code@gmail.com"]
 
   spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
   spec.description   = %q{TODO: Write a longer description or delete this line.}
