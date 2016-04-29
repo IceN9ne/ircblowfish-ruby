@@ -25,6 +25,7 @@ module IrcBlowfish
 
     # Remove the ecb:/old: prefix if it's used
     key = key.sub %{^(?:old|ecb):}, ''
+    return msg if key == ''
 
     # Create the Blowfish-CBC cipher
     cipher = OpenSSL::Cipher.new 'bf-ecb'
@@ -52,6 +53,7 @@ module IrcBlowfish
 
     # Remove the ecb:/old: prefix if it's used
     key = key.sub %r{^(?:old|ecb):}, ''
+    return msg if key == ''
 
     # Create the Blowfish-CBC cipher
     cipher = OpenSSL::Cipher.new 'bf-ecb'
@@ -73,6 +75,7 @@ module IrcBlowfish
 
     # Remove the cbc: prefix if it's used
     key = key.sub %r{^cbc:}, ''
+    return msg if key == ''
 
     # Generate a random IV of length 8
     iv = random_iv 8
@@ -102,6 +105,7 @@ module IrcBlowfish
 
     # Remove the cbc: prefix if it's used
     key = key.sub %r{^cbc:}, ''
+    return msg if key == ''
 
     # Decode the text to get the IV + ciphertext
     ciphertext = ::Base64.decode64 ciphertext
