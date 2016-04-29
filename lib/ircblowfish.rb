@@ -1,6 +1,7 @@
 require "ircblowfish/version"
 require "ircblowfish/base64"
 
+require "base64"
 require "openssl"
 require "securerandom"
 
@@ -117,7 +118,7 @@ module IrcBlowfish
     cipher.iv = iv
 
     # Decrypt the ciphertext and remove the trailing padding
-    cipher.update(ciphertext).sub! %r{\x00$}, ''
+    cipher.update(ciphertext).sub! %r{\x00*$}, ''
   end
 
   private
