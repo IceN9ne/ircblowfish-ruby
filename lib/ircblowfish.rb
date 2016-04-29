@@ -24,7 +24,7 @@ module IrcBlowfish
     plaintext = msg.dup.force_encoding 'BINARY'
 
     # Remove the ecb:/old: prefix if it's used
-    key = key.sub %{^(?:old|ecb):}, ''
+    key = key.sub %r{^(?:old|ecb):}, ''
     return msg if key == ''
 
     # Create the Blowfish-CBC cipher
