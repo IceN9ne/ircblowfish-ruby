@@ -1,8 +1,6 @@
 # IrcBlowfish
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ircblowfish`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A Ruby module for encrypting and decrypting IRC Blowfish ECB/CBC messages.
 
 ## Installation
 
@@ -22,7 +20,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+message = '+OK '
+key = 'ecb:AWeakKey'
+plaintext = IrcBlowfish.decrypt message, key
+
+text = 'This is a test string'
+key = 'cbc:ABetter?Key'
+message = IrcBlowfish.encrypt text, key
+```
+
+To define an ecb key, prefix it with either `ecb:` or `old:`. CBC keys can be prefixed with `cbc:` or are assumed to be CBC with no prefix.
+
+You can explicitly call `encrypt_ecb` or `encrypt_cbc`, but just calling `encrypt` will automatically figure out which to use based on the key passed.
 
 ## Development
 
@@ -32,7 +42,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/ircblowfish.
+Bug reports and pull requests are welcome on GitHub at https://github.com/JasonIverson/ircblowfish.
 
 
 ## License
