@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jason Iverson"]
   spec.email         = ["iverson.jason.code@gmail.com"]
 
-  spec.summary       = %q{Encryption Module for IRC Blowfish}
+  spec.summary       = %q{Ruby Encryption Module for IRC Blowfish}
   spec.description   = %q{A Ruby module for encrypting and decrypting IRC Blowfish ECB/CBC messages}
-  spec.homepage      = "https://github.com/JasonIverson/ircblowfish/"
+  spec.homepage      = "https://github.com/JasonIverson/ircblowfish-ruby/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
