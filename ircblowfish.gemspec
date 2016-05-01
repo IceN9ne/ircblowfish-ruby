@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Jason Iverson"]
   spec.email         = ["iverson.jason.code@gmail.com"]
 
-  spec.summary       = %q{Ruby Encryption Module for IRC Blowfish}
+  spec.summary       = %q{Ruby Encryption Module for IRC Blowfish Messages}
   spec.description   = %q{A Ruby module for encrypting and decrypting IRC Blowfish ECB/CBC messages}
   spec.homepage      = "https://github.com/JasonIverson/ircblowfish-ruby/"
   spec.license       = "MIT"
