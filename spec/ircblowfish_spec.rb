@@ -158,6 +158,16 @@ describe IrcBlowfish do
       expect(IrcBlowfish.decrypt(IrcBlowfish.encrypt('This is a plaintext string', 'cbc:AWeakKey'), 'cbc:AWeakKey')).to eq 'This is a plaintext string'
       expect(IrcBlowfish.decrypt(IrcBlowfish.encrypt('This is a plaintext string', 'AWeakKey'), 'AWeakKey')).to eq 'This is a plaintext string'
     end
+
+    it 'handles a nil or empty key' do
+      expect(IrcBlowfish.encrypt('This is a plaintext string', nil)).to eq 'This is a plaintext string'
+      expect(IrcBlowfish.encrypt('This is a plaintext string', '')).to eq 'This is a plaintext string'
+    end
+
+    it 'handles a nil or empty message' do
+      expect(IrcBlowfish.encrypt(nil, 'ecb:AWeakKey')).to eq nil
+      expect(IrcBlowfish.encrypt('', 'ecb:AWeakKey')).to eq ''
+    end
   end
 
   describe '::decrypt' do
@@ -167,6 +177,16 @@ describe IrcBlowfish do
       expect(IrcBlowfish.decrypt('+OK OkFFk1k//fB1j1Gup0ZMkiK/FHxQd12Ka/G1U5enV1cMjBs.', 'old:AWeakKey')).to eq 'This is a plaintext string'
       expect(IrcBlowfish.decrypt('+OK *5q3IoVBiowViKBNazrpnBgfBNbbgyZVU6vJnfMkRsKCsDqkscUY9XA==', 'cbc:AWeakKey')).to eq 'This is a plaintext string'
       expect(IrcBlowfish.decrypt('+OK *5q3IoVBiowViKBNazrpnBgfBNbbgyZVU6vJnfMkRsKCsDqkscUY9XA==', 'AWeakKey')).to eq 'This is a plaintext string'
+    end
+
+    it 'handles a nil or empty key' do
+      expect(IrcBlowfish.decrypt('This is a plaintext string', nil)).to eq 'This is a plaintext string'
+      expect(IrcBlowfish.decrypt('This is a plaintext string', '')).to eq 'This is a plaintext string'
+    end
+
+    it 'handles a nil or empty message' do
+      expect(IrcBlowfish.decrypt(nil, 'ecb:AWeakKey')).to eq nil
+      expect(IrcBlowfish.decrypt('', 'ecb:AWeakKey')).to eq ''
     end
   end
 end
