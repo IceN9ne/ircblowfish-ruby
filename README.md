@@ -30,7 +30,7 @@ key = 'cbc:ABetter?Key'
 message = IrcBlowfish.encrypt text, key
 ```
 
-To define an ecb key, prefix it with either `ecb:` or `old:`. CBC keys can be prefixed with `cbc:` or are assumed to be CBC with no prefix.
+To define an ECB key, prefix it with either `ecb:` or `old:`. CBC keys can be prefixed with `cbc:` or are assumed to be CBC with no prefix.
 
 You can explicitly call `encrypt_ecb` or `encrypt_cbc`, but just calling `encrypt` will automatically figure out which to use based on the key passed.
 
