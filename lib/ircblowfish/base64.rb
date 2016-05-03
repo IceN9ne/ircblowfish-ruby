@@ -1,7 +1,11 @@
 module IrcBlowfish
   module Base64
+    # The Base64 characters modified for IRC Blowfish-ECB
     B64 = './0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.freeze
 
+    # Encodes a binary string in modified IRC Blowfish-ECB Base64
+    # @param bin [String] binary encoded string to be encoded
+    # @return [String] the Base64 encoded string
     def self.encode(bin)
       str = ''
 
@@ -24,6 +28,9 @@ module IrcBlowfish
       str
     end
 
+    # Decodes an IRC Blowfish-ECB Base64 string
+    # @param str [String] the Base64 encoded string
+    # @return the decoded string
     def self.decode(str)
       bin = ''
 
