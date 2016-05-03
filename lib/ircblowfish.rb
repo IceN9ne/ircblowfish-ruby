@@ -59,7 +59,7 @@ module IrcBlowfish
 
     # Ensure the message is a valid Blowfish-ECB message and remove the prefix
     ciphertext = msg.dup
-    return msg unless ciphertext.sub! %r{^\+OK }, ''
+    return msg unless ciphertext.sub! %r{^\+(?:OK|mcps) }, ''
     return msg if ciphertext[0] == '*' # Dump if this is actually a Blowfish-CBC message
     return '' if ciphertext == '' # I've seen some clients send "+OK " for null messages
 
@@ -117,7 +117,7 @@ module IrcBlowfish
 
     # Ensure the message is a valid Blowfish-CBC message and remove the prefix
     ciphertext = msg.dup
-    return msg unless ciphertext.sub! %r{^\+OK \*}, ''
+    return msg unless ciphertext.sub! %r{^\+(?:OK|mcps) \*}, ''
 
     # Remove the cbc: prefix if it's used
     key = key.sub %r{^cbc:}, ''
