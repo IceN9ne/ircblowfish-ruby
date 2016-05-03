@@ -30,7 +30,7 @@ module IrcBlowfish
 
     # Decodes an IRC Blowfish-ECB Base64 string
     # @param str [String] the Base64 encoded string
-    # @return the decoded string
+    # @return [String] the decoded string
     def self.decode(str)
       bin = ''
 
