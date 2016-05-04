@@ -56,6 +56,8 @@ describe IrcBlowfish do
       # Using no prefix
       expect(IrcBlowfish.decrypt_ecb('+OK OkFFk1k//fB1j1Gup0ZMkiK/FHxQd12Ka/G1U5enV1cMjBs.', 'AWeakKey')).to eq 'This is a plaintext string'
       expect(IrcBlowfish.decrypt_ecb('+OK vKB5G.YXf8b/FSMQo0tlrcq0JY0.O/xT4Ks/JDCLX/CKbTr1', 'ABetter?Key')).to eq 'An alternative plaintext string'
+      expect(IrcBlowfish.decrypt_ecb('+mcps OkFFk1k//fB1j1Gup0ZMkiK/FHxQd12Ka/G1U5enV1cMjBs.', 'AWeakKey')).to eq 'This is a plaintext string'
+      expect(IrcBlowfish.decrypt_ecb('+mcps vKB5G.YXf8b/FSMQo0tlrcq0JY0.O/xT4Ks/JDCLX/CKbTr1', 'ABetter?Key')).to eq 'An alternative plaintext string'
 
       # Use a short key
       expect(IrcBlowfish.decrypt_ecb('+OK xyxLi.N8aNx16YME11FHbIN1TJAND/oIDBB/NUTxY.nZohB.', 'ecb:a')).to eq 'This is a plaintext string'
@@ -124,6 +126,7 @@ describe IrcBlowfish do
       # Using no prefix
       expect(IrcBlowfish.decrypt_cbc('+OK *5q3IoVBiowViKBNazrpnBgfBNbbgyZVU6vJnfMkRsKCsDqkscUY9XA==', 'AWeakKey')).to eq 'This is a plaintext string'
       expect(IrcBlowfish.decrypt_cbc('+OK *r6jziPn/YqkY62L+/7tjqIGLeh22K3V8', 'AWeakKey')).to eq "\xE3\x81\x93\xE3\x82\x93\xE3\x81\xAB\xE3\x81\xA1\xE3\x82\x8F".force_encoding('BINARY')
+      expect(IrcBlowfish.decrypt_cbc('+mcps *5q3IoVBiowViKBNazrpnBgfBNbbgyZVU6vJnfMkRsKCsDqkscUY9XA==', 'AWeakKey')).to eq 'This is a plaintext string'
 
       # Use a short key
       expect(IrcBlowfish.decrypt_cbc('+OK *i55NjKDV9JqmnXH0h8RIQJ/ZqwbU3GYHrNazdIcgbxK1GD1Dr1jtxw==', 'a')).to eq 'This is a plaintext string'
