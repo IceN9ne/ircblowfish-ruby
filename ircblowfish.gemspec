@@ -6,8 +6,8 @@ require 'ircblowfish/version'
 Gem::Specification.new do |spec|
   spec.name          = "ircblowfish"
   spec.version       = IrcBlowfish::VERSION
-  spec.authors       = ["Jason Iverson"]
-  spec.email         = ["iverson.jason.code@gmail.com"]
+  spec.authors       = ["IceN9ne"]
+  spec.email         = ["IceN9ne.code@gmail.com"]
 
   spec.summary       = %q{Ruby Encryption Module for IRC Blowfish Messages}
   spec.description   = %q{A Ruby module for encrypting and decrypting IRC Blowfish ECB/CBC messages}
